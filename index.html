@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh Pandey | Python Repository</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --accent: #60a5fa;
+            --accent-purple: #a855f7;
+            --bg-dark: #050507;
+            --card-bg: #0f1115;
+            --text-main: #e2e8f0;
+            --text-dim: #94a3b8;
+            --code-bg: #1a1b26;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- OWNER INTRO SECTION --- */
+        .owner-hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(96, 165, 250, 0.1) 0%, transparent 70%);
+            padding: 20px;
+        }
+
+        .profile-orb {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            box-shadow: 0 0 40px rgba(96, 165, 250, 0.4);
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+
+        .owner-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .owner-hero .title {
+            color: var(--accent);
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+            color: var(--text-dim);
+        }
+
+        /* --- REPOSITORY LAYOUT --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 60px;
+        }
+
+        /* --- CODE CARD (FIXED SPACING) --- */
+        .code-block-wrapper {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 40px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .code-block-wrapper:hover {
+            border-color: var(--accent);
+            transform: scale(1.01);
+        }
+
+        .block-info {
+            padding: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .block-info h3 { font-size: 1.5rem; color: #fff; margin-bottom: 5px; }
+        .block-info p { color: var(--text-dim); font-size: 0.95rem; }
+
+        .terminal {
+            background: var(--code-bg);
+            padding: 0;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .terminal-header {
+            background: #24283b;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dots { display: flex; gap: 8px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+
+        pre {
+            padding: 25px;
+            overflow-x: auto;
+            white-space: pre; /* Prevents awkward wrapping inside code */
+            font-size: 0.9rem;
+            color: #a9b1d6;
+        }
+
+        /* --- SYNTAX COLORS --- */
+        .k { color: #bb9af7; } /* keyword */
+        .f { color: #7aa2f7; } /* function */
+        .s { color: #9ece6a; } /* string */
+        .c { color: #565f89; font-style: italic; } /* comment */
+
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+        footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <section class="owner-hero">
+        <div class="profile-orb"><i class="fas fa-user-shield"></i></div>
+        <h1>Utkarsh Pandey</h1>
+        <div class="title">System Owner & Lead Developer</div>
+        <p style="max-width: 500px; color: var(--text-dim);">Empowering digital projects with AI-driven Python logic and advanced system architectures. Welcome to my central code repository.</p>
+        <div class="scroll-indicator"><i class="fas fa-chevron-down"></i></div>
+    </section>
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Python Project Archive</h2>
+            <p>A complete collection of scripted logic and tools.</p>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="block-info">
+                <h3>2-Player Dice Game</h3>
+                <p>Competitive randomization logic for two players.</p>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header"><div class="dots"><div class="dot" style="background:#ff5f56"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div></div>
+                <pre><code><span class="k">import</span> random
+p1 = random.randint(<span class="s">1, 6</span>)
+p2 = random.randint(<span class="s">1, 6</span>)
+<span class="f">print</span>(<span class="s">"Player 1 Rolled"</span>, p1)
+<span class="f">print</span>(<span class="s">"Player 2 Rolled"</span>, p2)
+
+<span class="k">if</span> p1 > p2:
+    <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
+<span class="k">elif</span> p2 > p1:
+    <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Its a tie"</span>)</code></pre>
+            </div>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="block-info">
+                <h3>2-Player Guessing Game</h3>
+                <p>One player hides a number, the other attempts to find it.</p>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header"><div class="dots"><div class="dot" style="background:#ff5f56"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div></div>
+                <pre><code>p1 = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Player 1: Hide your number: "</span>))
+<span class="f">print</span>(<span class="s">"\n"</span> * <span class="s">50</span>) <span class="c"># Clears the screen</span>
+p2 = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Player 2: Guess the number: "</span>))
+
+<span class="k">if</span> p2 == p1:
+    <span class="f">print</span>(<span class="s">"Right Guess! Player 2 wins"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Wrong Guess! Player 1 wins"</span>)</code></pre>
+            </div>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="block-info">
+                <h3>SimpleBot AI</h3>
+                <p>An interactive chatbot loop for basic communication.</p>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header"><div class="dots"><div class="dot" style="background:#ff5f56"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div></div>
+                <pre><code><span class="f">print</span>(<span class="s">"Chatbot: Hello! I am your AI Chatbot."</span>)
+<span class="k">while</span> <span class="k">True</span>:
+    user = <span class="f">input</span>(<span class="s">"You: "</span>).lower()
+    <span class="k">if</span> user == <span class="s">"hello"</span>:
+        <span class="f">print</span>(<span class="s">"Chatbot: Hi! Nice to meet you"</span>)
+    <span class="k">elif</span> user == <span class="s">"your name"</span>:
+        <span class="f">print</span>(<span class="s">"Chatbot: My name is SimpleBot."</span>)
+    <span class="k">elif</span> user == <span class="s">"bye"</span>:
+        <span class="f">break</span></code></pre>
+            </div>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="block-info">
+                <h3>Dynamic Story Generator</h3>
+                <p>Creates a custom narrative using user input variables.</p>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header"><div class="dots"><div class="dot" style="background:#ff5f56"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div></div>
+                <pre><code>name = <span class="f">input</span>(<span class="s">"Enter a name: "</span>)
+place = <span class="f">input</span>(<span class="s">"Enter a place: "</span>)
+obj = <span class="f">input</span>(<span class="s">"Enter an object: "</span>)
+
+story = <span class="s">f"Once, {name} went to {place} and found a magical {obj}."</span>
+<span class="f">print</span>(story)</code></pre>
+            </div>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="block-info">
+                <h3>Rock Paper Scissors</h3>
+                <p>Classic game logic with tie-breaking conditions.</p>
+            </div>
+            <div class="terminal">
+                <div class="terminal-header"><div class="dots"><div class="dot" style="background:#ff5f56"></div><div class="dot" style="background:#ffbd2e"></div><div class="dot" style="background:#27c93f"></div></div></div>
+                <pre><code>p1 = <span class="f">input</span>(<span class="s">"P1 (Stone/Paper/Scissors): "</span>).lower()
+p2 = <span class="f">input</span>(<span class="s">"P2 (Stone/Paper/Scissors): "</span>).lower()
+
+<span class="k">if</span> p1 == p2:
+    <span class="f">print</span>(<span class="s">"It's a Draw"</span>)
+<span class="k">elif</span> (p1==<span class="s">"stone"</span> <span class="k">and</span> p2==<span class="s">"scissors"</span>):
+    <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)</code></pre>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>REPOS_VERSION: 3.0.1 | DEVELOPED BY UTKARSH PANDEY</p>
+        <p>&copy; 2026. All Scripts Verified for High Efficiency.</p>
+    </footer>
+
+</body>
+</html>
