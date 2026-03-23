@@ -3,266 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTKARSH PANDEY | SINGULARITY-OS</title>
+    <title>UTKARSH PANDEY | NEURAL SECTORS</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #00f2ff;
-            --secondary: #7000ff;
+            --secondary: #bc13fe;
             --bg: #030305;
             --glass: rgba(255, 255, 255, 0.03);
             --border: rgba(0, 242, 255, 0.2);
-            --glow: 0 0 20px rgba(0, 242, 255, 0.4);
+            --glow: 0 0 25px rgba(0, 242, 255, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; cursor: crosshair; }
-        body { 
-            background: var(--bg); 
-            color: #fff; 
-            font-family: 'Orbitron', sans-serif; 
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+        body { background: var(--bg); color: #fff; font-family: 'Orbitron', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #000; }
 
-        #canvas-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; background: radial-gradient(circle at center, #0a0a1a 0%, #030305 100%);
-        }
-
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-            width: 90%; max-width: 1200px; padding: 20px 40px;
-            background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(20px);
+            width: 90%; max-width: 1200px; padding: 15px 30px;
+            background: rgba(10, 10, 15, 0.85); backdrop-filter: blur(20px);
             border: 1px solid var(--border); border-radius: 50px;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; box-shadow: var(--glow);
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
         }
-
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s; opacity: 0.7; }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; margin-left: 20px; transition: 0.3s; opacity: 0.6; }
         .nav-links a:hover { opacity: 1; color: var(--primary); text-shadow: var(--glow); }
 
-        /* --- HERO SECTION --- */
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-        .orb-wrapper { position: relative; width: 280px; height: 280px; margin-bottom: 50px; }
-        .orb {
-            position: absolute; width: 100%; height: 100%; border-radius: 50%;
-            border: 2px solid var(--primary); box-shadow: inset 0 0 50px var(--primary), 0 0 50px var(--primary);
-            animation: pulse 4s infinite alternate;
-        }
-        .orb-ring {
-            position: absolute; width: 130%; height: 130%; top: -15%; left: -15%;
-            border: 1px solid var(--secondary); border-radius: 50%; animation: rotate 10s linear infinite;
-        }
-        @keyframes pulse { from { transform: scale(0.9); opacity: 0.5; } to { transform: scale(1.1); opacity: 1; } }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900;
-            background: linear-gradient(to right, #fff, var(--primary), var(--secondary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        /* --- SECTIONS --- */
+        .container { max-width: 1400px; margin: 0 auto; padding: 120px 5% 50px; }
+        .sector-title { 
+            font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; 
+            letter-spacing: 5px; color: #fff; border-left: 5px solid var(--primary); padding-left: 20px;
         }
 
-        /* --- GRID & CARDS --- */
-        .container { max-width: 1400px; margin: 0 auto; padding: 80px 5%; }
-        .section-title { font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 4px; color: var(--primary); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
 
-        .code-card { background: var(--glass); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: 0.4s; }
-        .code-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
-        .card-inner { background: #08080c; padding: 20px; }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .code-card { 
+            background: var(--glass); border: 1px solid var(--border); border-radius: 15px; 
+            overflow: hidden; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        .code-card:hover { transform: scale(1.03); border-color: var(--primary); box-shadow: var(--glow); }
+        .card-inner { background: #08080c; padding: 25px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .card-header span { font-size: 0.7rem; color: var(--primary); font-family: 'Fira Code'; }
 
         pre { 
-            background: #010103; padding: 18px; border-radius: 10px; 
+            background: #010103; padding: 20px; border-radius: 12px; 
             font-family: 'Fira Code', monospace; font-size: 0.8rem; 
             color: #a9b1d6; overflow-x: auto; border: 1px solid rgba(255,255,255,0.05);
         }
 
         .btn-copy { 
-            background: var(--primary); color: #000; border: none; padding: 6px 12px; 
-            border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.7rem;
+            background: var(--primary); color: #000; border: none; padding: 7px 15px; 
+            border-radius: 5px; font-weight: 900; cursor: pointer; font-size: 0.7rem; 
         }
 
-        /* --- IDENTITY HUD --- */
-        .owner-hud {
-            display: flex; gap: 40px; align-items: center; background: rgba(255, 255, 255, 0.02);
-            padding: 50px; border-radius: 25px; border: 1px solid var(--border); margin-top: 100px;
-        }
-        .pfp-hex {
-            width: 220px; height: 220px; border: 4px solid var(--primary);
-            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-            background: url('https://i.pinimg.com/736x/8e/3c/6c/8e3c6c06a382c730873a46944b0f026f.jpg') center/cover;
-        }
-
-        /* --- SCROLL PROGRESS --- */
-        #progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--primary); z-index: 2000; width: 0%; box-shadow: var(--glow); }
-
-        /* SYNTAX */
+        /* --- SYNTAX COLORS --- */
         .k { color: #bb9af7; } .f { color: #7aa2f7; } .s { color: #9ece6a; } .c { color: #565f89; }
     </style>
 </head>
 <body>
 
-<div id="progress"></div>
 <div id="canvas-container"><canvas id="matrix"></canvas></div>
 
 <nav>
-    <div style="font-weight:900; letter-spacing: 2px; color:var(--primary)">UTKARSH.PRO</div>
+    <div style="font-weight:900; letter-spacing: 3px; color:var(--primary)">UTKARSH_SECTORS</div>
     <div class="nav-links">
-        <a href="#home">HOME</a>
-        <a href="#identity">IDENTITY</a>
-        <a href="#repo">REPOSITORY</a>
-        <a href="https://slayers-001.github.io/Norden-MC/">NORDEN-MC</a>
+        <a href="#ai-club">01. AI_CLUB</a>
+        <a href="#neural-vault">02. NEURAL_VAULT</a>
+        <a href="https://slayers-001.github.io/Norden-MC/">NORDEN_LIVE</a>
     </div>
 </nav>
 
-<section class="hero" id="home">
-    <div class="orb-wrapper"><div class="orb"></div><div class="orb-ring"></div></div>
-    <h1>UTKARSH PANDEY</h1>
-    <p style="font-family:'Fira Code'; color:var(--primary); margin-top:10px;">[ SYSTEM_ADMIN // LEAD_DEVELOPER ]</p>
-</section>
-
 <div class="container">
 
-    <section id="identity">
-        <h2 class="section-title">01. Identity_Matrix</h2>
-        <div class="owner-hud">
-            <div class="pfp-hex"></div>
-            <div>
-                <h3 style="font-size: 2rem;">Utkarsh Pandey</h3>
-                <p style="color:#888; margin: 10px 0;">Developer and Administrator of high-performance Minecraft servers (Norden-MC, Demon-MC).</p>
-                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top:20px;">
-                    <div style="border-left: 2px solid var(--primary); padding-left: 10px;"><h5>SCRIPTS</h5><p>120+ Active</p></div>
-                    <div style="border-left: 2px solid var(--primary); padding-left: 10px;"><h5>CLEARANCE</h5><p>Root Access</p></div>
+    <section id="ai-club">
+        <h2 class="sector-title">01. Code Done In AI Club</h2>
+        <div class="grid">
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// AI_CLUB_PROJECT_ALPHA.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> random
+<span class="c"># AI Club Research Module</span>
+<span class="k">def</span> <span class="f">analyze_neural_patterns</span>():
+    data = [random.<span class="f">random</span>() <span class="k">for</span> _ <span class="k">in</span> <span class="f">range</span>(<span class="s">100</span>)]
+    <span class="k">return</span> <span class="f">sum</span>(data) / <span class="f">len</span>(data)</code></pre>
+                </div>
+            </div>
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// MC_SERVER_INTEGRATION.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">from</span> mcrcon <span class="k">import</span> MCRcon
+<span class="c"># AI Club Norden-MC Hook</span>
+<span class="k">with</span> MCRcon(<span class="s">"SERVER_IP"</span>, <span class="s">"PASSWORD"</span>) <span class="k">as</span> mcr:
+    mcr.<span class="f">command</span>(<span class="s">"/say AI_CLUB_ACTIVE"</span>)</code></pre>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="repo" style="margin-top: 100px;">
-        <h2 class="section-title">02. Neural_Library</h2>
-        <div class="grid" id="codeGrid">
-            
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// MC_LIVE_QUERY.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">from</span> mcstatus <span class="k">import</span> JavaServer
-server = JavaServer.lookup(<span class="s">"play.nordenmc.net"</span>)
-<span class="f">print</span>(<span class="f">f</span><span class="s">"Online: {server.status().players.online}"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// SERVER_RCON.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">from</span> mcrcon <span class="k">import</span> MCRcon
-<span class="k">with</span> MCRcon(<span class="s">"127.0.0.1"</span>, <span class="s">"password"</span>) <span class="k">as</span> mcr:
-    mcr.<span class="f">command</span>(<span class="s">"/restart"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// CLOUD_BACKUP.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> shutil, os
-shutil.<span class="f">make_archive</span>(<span class="s">'backup_v1'</span>, <span class="s">'zip'</span>, <span class="s">'world_folder'</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// NEXUS_BOT.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> discord
-client = discord.Client()
-<span class="k">@client.event</span>
-<span class="k">async def</span> <span class="f">on_ready</span>(): <span class="f">print</span>(<span class="s">'Logged in'</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// GAME_SNAKE.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> turtle, time
-s = turtle.Screen()
-snake = turtle.Turtle(<span class="s">"square"</span>)
-snake.color(<span class="s">"cyan"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// GAME_RPS.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> random
-cpu = random.choice([<span class="s">'R'</span>,<span class="s">'P'</span>,<span class="s">'S'</span>])
-user = <span class="f">input</span>(<span class="s">"Choice: "</span>)</code></pre>
-                </div>
-            </div>
-
+    <section id="neural-vault" style="margin-top: 150px;">
+        <h2 class="sector-title" style="border-left-color: var(--secondary);">02. Cyber-Nexus Neural Vault</h2>
+        <p style="color: #666; margin: -40px 0 40px; font-size: 0.9rem;">[ DATABASE_STATUS: 110_ACTIVE_UNITS ]</p>
+        <div class="grid" id="vaultGrid">
             </div>
     </section>
+
 </div>
 
 <script>
-    // MATRIX BG
+    // 1. MATRIX BACKGROUND ENGINE
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    const alphabet = "UTKARSHPANDEYNEXUS01";
+    const chars = "UTKARSH01";
     const fontSize = 16;
     const drops = Array(Math.floor(canvas.width / fontSize)).fill(1);
 
-    function draw() {
-        ctx.fillStyle = "rgba(3, 3, 5, 0.1)";
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#00f2ff";
         ctx.font = fontSize + "px monospace";
         drops.forEach((y, i) => {
-            const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+            const text = chars[Math.floor(Math.random() * chars.length)];
             ctx.fillText(text, i * fontSize, y * fontSize);
-            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            if (y * fontSize > canvas.height && Math.random() > 0.98) drops[i] = 0;
             drops[i]++;
         });
     }
-    setInterval(draw, 50);
+    setInterval(drawMatrix, 50);
 
-    // COPY
+    // 2. COPY SYSTEM
     function copy(btn) {
         const code = btn.closest('.code-card').querySelector('code').innerText;
         navigator.clipboard.writeText(code);
-        btn.innerText = "DONE!";
-        setTimeout(() => btn.innerText = "COPY", 2000);
+        const originalText = btn.innerText;
+        btn.innerText = "COPIED!";
+        btn.style.background = "#00ff00";
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = "var(--primary)";
+        }, 2000);
     }
 
-    // SCROLL PROGRESS
-    window.onscroll = () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        document.getElementById("progress").style.width = (winScroll / height) * 100 + "%";
-    };
-
-    // --- AUTOMATED 100+ CODE GENERATOR ---
-    const grid = document.getElementById('codeGrid');
-    const topics = ["NETWORK", "OS", "FILE", "AI", "MATH", "CRYPTO", "WEB", "UI", "BOT", "SYS"];
+    // 3. AUTO-GENERATE 110+ CODES FOR THE NEURAL VAULT
+    const vaultGrid = document.getElementById('vaultGrid');
+    const modules = ["SECURITY", "OS_INTEL", "CRYPTO", "SERVER", "AI_CORE", "UI_ENGINE", "BOT_LOGIC", "DATA_MINE", "GAME_SYS", "NEXUS"];
     
-    for(let i=7; i<=110; i++) {
-        const topic = topics[i % topics.length];
+    for (let i = 1; i <= 110; i++) {
+        const modName = modules[i % modules.length];
         const card = document.createElement('div');
         card.className = "code-card";
         card.innerHTML = `
             <div class="card-inner">
-                <div class="card-header"><span>// ${topic}_MODULE_${i}.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                <pre><code><span class="k">import</span> ${topic.toLowerCase()}
-<span class="c"># Auto-generated high-utility module</span>
-<span class="k">def</span> <span class="f">nexus_execute_${i}</span>():
-    <span class="k">return</span> ${topic.toLowerCase()}.<span class="f">initialize</span>()</code></pre>
+                <div class="card-header"><span>// ${modName}_UNIT_${i+100}.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                <pre><code><span class="k">def</span> <span class="f">nexus_unit_${i}</span>():
+    <span class="c"># High-Utility Utility Execution</span>
+    <span class="f">print</span>(<span class="s">"Executing ${modName} sequence ${i}..."</span>)
+    <span class="k">return</span> <span class="k">True</span></code></pre>
             </div>
         `;
-        grid.appendChild(card);
+        vaultGrid.appendChild(card);
     }
 </script>
+
 </body>
 </html>
