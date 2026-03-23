@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTKARSH PANDEY | NEXUS_OMNI</title>
+    <title>UTKARSH PANDEY | JARVIS</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -39,6 +39,7 @@
             border: 1px solid var(--border);
             padding: 60px;
             border-radius: 30px;
+            margin-top: 50px;
             margin-bottom: 80px;
             display: flex;
             gap: 50px;
@@ -48,18 +49,10 @@
         .profile-hex {
             width: 200px;
             height: 200px;
-            background: url('https://i.imgur.com/your-image.jpg') center/cover;
+            background: rgba(0, 242, 255, 0.1);
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
             border: 2px solid var(--primary);
             position: relative;
-        }
-        .profile-hex::after {
-            content: '';
-            position: absolute;
-            top: -5px; left: -5px; right: -5px; bottom: -5px;
-            border: 1px solid var(--primary);
-            clip-path: inherit;
-            animation: rotate 10s linear infinite;
         }
         .stats-grid {
             display: grid;
@@ -67,14 +60,11 @@
             gap: 20px;
             margin-top: 20px;
         }
-        .stat-box {
-            border-left: 3px solid var(--primary);
-            padding-left: 15px;
-        }
+        .stat-box { border-left: 3px solid var(--primary); padding-left: 15px; }
         .stat-box small { color: var(--primary); font-size: 0.6rem; letter-spacing: 2px; }
         .stat-box p { font-size: 1.1rem; font-weight: 700; }
 
-        /* --- SECTIONS --- */
+        /* --- GRID SYSTEM --- */
         .container { max-width: 1400px; margin: 0 auto; padding: 120px 5% 50px; }
         .sector-title { 
             font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; 
@@ -83,6 +73,7 @@
 
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
 
+        /* --- CODE CARDS --- */
         .code-card { 
             background: var(--glass); border: 1px solid var(--border); border-radius: 15px; 
             overflow: hidden; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
@@ -90,12 +81,13 @@
         .code-card:hover { transform: scale(1.03); border-color: var(--primary); box-shadow: var(--glow); }
         .card-inner { background: #08080c; padding: 25px; }
         .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-        .card-header span { font-size: 0.7rem; color: var(--primary); font-family: 'Fira Code'; }
+        .card-header span { font-size: 0.7rem; color: var(--primary); font-family: 'Fira Code'; text-transform: uppercase; }
 
         pre { 
             background: #010103; padding: 20px; border-radius: 12px; 
             font-family: 'Fira Code', monospace; font-size: 0.8rem; 
             color: #a9b1d6; overflow-x: auto; border: 1px solid rgba(255,255,255,0.05);
+            line-height: 1.5;
         }
 
         .btn-copy { 
@@ -103,7 +95,7 @@
             border-radius: 5px; font-weight: 900; cursor: pointer; font-size: 0.7rem; 
         }
 
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        /* --- SYNTAX COLORS --- */
         .k { color: #bb9af7; } .f { color: #7aa2f7; } .s { color: #9ece6a; } .c { color: #565f89; }
     </style>
 </head>
@@ -129,10 +121,10 @@
             <h2 style="font-size: 2.5rem; margin-bottom: 5px;">UTKARSH PANDEY</h2>
             <p style="color: var(--primary); letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px;">[ SYSTEM_ADMINISTRATOR // FULL_STACK_DEV ]</p>
             <p style="font-family: 'Fira Code'; opacity: 0.8; line-height: 1.6; max-width: 700px;">
-                Specializing in high-performance Minecraft server architecture (Norden-MC, Demon-MC) and advanced web development. Master of Cyber-Nexus aesthetics and automated system optimization.
+                Lead Developer and Administrator for high-performance Minecraft infrastructure (Norden-MC, Demon-MC). Expert in Python automation, AI logic, and Cyber-Nexus UI systems.
             </p>
             <div class="stats-grid">
-                <div class="stat-box"><small>SCRIPTS</small><p>120+ Active</p></div>
+                <div class="stat-box"><small>SCRIPTS</small><p>130+ Active</p></div>
                 <div class="stat-box"><small>CLEARANCE</small><p>Root Access</p></div>
                 <div class="stat-box"><small>STATUS</small><p>S-Rank Developer</p></div>
                 <div class="stat-box"><small>UPTIME</small><p>99.9% Sequential</p></div>
@@ -143,30 +135,87 @@
     <section id="ai-club">
         <h2 class="sector-title">01. Code Done In AI Club</h2>
         <div class="grid">
+            
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// AI_CLUB_PROJECT_ALPHA.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> random
-<span class="c"># AI Club Research Module</span>
-<span class="k">def</span> <span class="f">analyze_neural_patterns</span>():
-    data = [random.<span class="f">random</span>() <span class="k">for</span> _ <span class="k">in</span> <span class="f">range</span>(<span class="s">100</span>)]
-    <span class="k">return</span> <span class="f">sum</span>(data) / <span class="f">len</span>(data)</code></pre>
+                    <div class="card-header"><span>// SENTENCE_COMPLETER.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">if</span> <span class="s">"ai"</span> <span class="k">in</span> sentence:
+    <span class="f">print</span>(sentence + <span class="s">" will change the future of education."</span>)
+<span class="k">elif</span> <span class="s">"technology"</span> <span class="k">in</span> sentence:
+    <span class="f">print</span>(sentence + <span class="s">" is growing fast in the modern world."</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(sentence + <span class="s">" is very important in our daily life."</span>)</code></pre>
                 </div>
             </div>
+
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// MC_SERVER_INTEGRATION.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">from</span> mcrcon <span class="k">import</span> MCRcon
-<span class="c"># AI Club Norden-MC Hook</span>
-<span class="k">with</span> MCRcon(<span class="s">"SERVER_IP"</span>, <span class="s">"PASSWORD"</span>) <span class="k">as</span> mcr:
-    mcr.<span class="f">command</span>(<span class="s">"/say AI_CLUB_ACTIVE"</span>)</code></pre>
+                    <div class="card-header"><span>// STORY_WRITER.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code>name = <span class="f">input</span>(<span class="s">"Enter a name: "</span>)
+place = <span class="f">input</span>(<span class="s">"Enter a place: "</span>)
+story = (
+    <span class="s">"Once upon a time, there was a curious character named "</span> + name + <span class="s">"."</span> +
+    <span class="s">" One day, "</span> + name + <span class="s">" went to "</span> + place + <span class="s">" and found a magical artifact."</span>
+)
+<span class="f">print</span>(story)</code></pre>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// RPS_GAME.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code>p1 = <span class="f">input</span>(<span class="s">"Player 1: "</span>).<span class="f">lower</span>()
+p2 = <span class="f">input</span>(<span class="s">"Player 2: "</span>).<span class="f">lower</span>()
+<span class="k">if</span> p1 == p2:
+    <span class="f">print</span>(<span class="s">"It's a Draw"</span>)
+<span class="k">elif</span> (p1 == <span class="s">"stone"</span> <span class="k">and</span> p2 == <span class="s">"scissors"</span>) <span class="k">or</span> (p1 == <span class="s">"paper"</span> <span class="k">and</span> p2 == <span class="s">"stone"</span>):
+    <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)</code></pre>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// SIMPLE_AI_BOT.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">while</span> <span class="k">True</span>:
+    user = <span class="f">input</span>(<span class="s">"You: "</span>).<span class="f">lower</span>()
+    <span class="k">if</span> user == <span class="s">"hello"</span>:
+        <span class="f">print</span>(<span class="s">"Chatbot: Hi! Nice to meet you"</span>)
+    <span class="k">elif</span> user == <span class="s">"bye"</span>:
+        <span class="f">break</span></code></pre>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// DICE_ROLL_2P.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> random
+p1 = random.<span class="f">randint</span>(<span class="s">1,6</span>)
+p2 = random.<span class="f">randint</span>(<span class="s">1,6</span>)
+<span class="k">if</span> p1 > p2: <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
+<span class="k">elif</span> p2 > p1: <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)
+<span class="k">else</span>: <span class="f">print</span>(<span class="s">"It's a tie"</span>)</code></pre>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="card-inner">
+                    <div class="card-header"><span>// GUESS_NUMBER_RANDOM.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> random
+number = random.<span class="f">randint</span>(<span class="s">1,100</span>)
+guess = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Guess 1-100: "</span>))
+<span class="k">if</span> guess == number:
+    <span class="f">print</span>(<span class="s">"You win! Luck is OP"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Wrong guess, try later"</span>)</code></pre>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="neural-vault" style="margin-top: 150px;">
-        <h2 class="sector-title" style="border-left-color: var(--secondary);">02. Cyber-Nexus Neural Vault</h2>
+        <h2 class="sector-title" style="border-left-color: var(--secondary);">02. Neural Repository</h2>
         <p style="color: #666; margin: -40px 0 40px; font-size: 0.9rem;">[ DATABASE_STATUS: 110_ACTIVE_UNITS ]</p>
         <div class="grid" id="vaultGrid"></div>
     </section>
@@ -174,7 +223,7 @@
 </div>
 
 <script>
-    // 1. MATRIX BACKGROUND ENGINE
+    // 1. MATRIX BACKGROUND
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -209,7 +258,7 @@
         }, 2000);
     }
 
-    // 3. AUTO-GENERATE 110+ CODES
+    // 3. AUTO-GENERATE REPOSITORY
     const vaultGrid = document.getElementById('vaultGrid');
     const modules = ["SECURITY", "OS_INTEL", "CRYPTO", "SERVER", "AI_CORE", "UI_ENGINE", "BOT_LOGIC", "DATA_MINE", "GAME_SYS", "NEXUS"];
     
@@ -221,7 +270,7 @@
             <div class="card-inner">
                 <div class="card-header"><span>// ${modName}_UNIT_${i+100}.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                 <pre><code><span class="k">def</span> <span class="f">nexus_unit_${i}</span>():
-    <span class="c"># High-Utility Utility Execution</span>
+    <span class="c"># High-Utility Utility Execution Module</span>
     <span class="f">print</span>(<span class="s">"Executing ${modName} sequence ${i}..."</span>)
     <span class="k">return</span> <span class="k">True</span></code></pre>
             </div>
