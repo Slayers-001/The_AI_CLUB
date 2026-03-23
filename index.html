@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTKARSH PANDEY | VOID-OS v9.0</title>
+    <title>UTKARSH PANDEY | SINGULARITY-OS</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,13 +26,11 @@
             scroll-behavior: smooth;
         }
 
-        /* --- STUNNING BACKGROUND --- */
         #canvas-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1; background: radial-gradient(circle at center, #0a0a1a 0%, #030305 100%);
         }
 
-        /* --- GLASS NAVIGATION --- */
         nav {
             position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
             width: 90%; max-width: 1200px; padding: 20px 40px;
@@ -41,114 +39,69 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; box-shadow: var(--glow);
         }
+
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { 
-            color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px;
-            transition: 0.3s; opacity: 0.7;
-        }
+        .nav-links a { color: #fff; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { opacity: 1; color: var(--primary); text-shadow: var(--glow); }
 
-        /* --- HERO SECTION WITH 3D ORB --- */
-        .hero {
-            height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-        }
-        .orb-wrapper {
-            position: relative; width: 300px; height: 300px;
-            margin-bottom: 50px;
-        }
+        /* --- HERO SECTION --- */
+        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .orb-wrapper { position: relative; width: 280px; height: 280px; margin-bottom: 50px; }
         .orb {
-            position: absolute; width: 100%; height: 100%;
-            border-radius: 50%; background: transparent;
-            border: 2px solid var(--primary);
-            box-shadow: inset 0 0 50px var(--primary), 0 0 50px var(--primary);
+            position: absolute; width: 100%; height: 100%; border-radius: 50%;
+            border: 2px solid var(--primary); box-shadow: inset 0 0 50px var(--primary), 0 0 50px var(--primary);
             animation: pulse 4s infinite alternate;
         }
         .orb-ring {
-            position: absolute; width: 120%; height: 120%;
-            top: -10%; left: -10%; border: 1px solid var(--secondary);
-            border-radius: 50%; animation: rotate 10s linear infinite;
+            position: absolute; width: 130%; height: 130%; top: -15%; left: -15%;
+            border: 1px solid var(--secondary); border-radius: 50%; animation: rotate 10s linear infinite;
         }
         @keyframes pulse { from { transform: scale(0.9); opacity: 0.5; } to { transform: scale(1.1); opacity: 1; } }
         @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 6rem); font-weight: 900;
+            font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900;
             background: linear-gradient(to right, #fff, var(--primary), var(--secondary));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.3));
         }
 
-        /* --- REPOSITORY: MASONRY GRID --- */
-        .container { max-width: 1400px; margin: 0 auto; padding: 100px 5%; }
-        
-        .section-title {
-            font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase;
-            letter-spacing: 5px; border-bottom: 2px solid var(--primary);
-            display: inline-block; padding-bottom: 10px;
-        }
+        /* --- GRID & CARDS --- */
+        .container { max-width: 1400px; margin: 0 auto; padding: 80px 5%; }
+        .section-title { font-size: 2rem; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 4px; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 30px; }
 
-        .grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 40px;
-        }
+        .code-card { background: var(--glass); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; transition: 0.4s; }
+        .code-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: var(--glow); }
+        .card-inner { background: #08080c; padding: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .card-header span { font-size: 0.7rem; color: var(--primary); font-family: 'Fira Code'; }
 
-        /* --- THE ULTRA CARD --- */
-        .code-card {
-            background: var(--glass); border: 1px solid var(--border);
-            border-radius: 20px; padding: 2px; position: relative;
-            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-        .code-card:hover { transform: scale(1.05); border-color: var(--primary); box-shadow: var(--glow); }
-        
-        .card-inner { background: #08080c; border-radius: 18px; padding: 25px; }
-        
-        .card-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 15px; font-family: 'Fira Code', monospace;
-        }
-        .card-header span { font-size: 0.7rem; color: var(--primary); text-transform: uppercase; }
-
-        pre {
-            background: #010103; padding: 20px; border-radius: 12px;
-            font-family: 'Fira Code', monospace; font-size: 0.85rem;
+        pre { 
+            background: #010103; padding: 18px; border-radius: 10px; 
+            font-family: 'Fira Code', monospace; font-size: 0.8rem; 
             color: #a9b1d6; overflow-x: auto; border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .btn-copy {
-            background: var(--primary); color: #000; border: none;
-            padding: 8px 15px; border-radius: 5px; font-weight: 700;
-            font-size: 0.7rem; cursor: pointer; transition: 0.3s;
+        .btn-copy { 
+            background: var(--primary); color: #000; border: none; padding: 6px 12px; 
+            border-radius: 4px; font-weight: 700; cursor: pointer; font-size: 0.7rem;
         }
-        .btn-copy:hover { transform: scale(1.1); box-shadow: 0 0 15px var(--primary); }
 
-        /* --- OWNER PROFILE: NEON HUD --- */
+        /* --- IDENTITY HUD --- */
         .owner-hud {
-            display: flex; gap: 50px; align-items: center;
-            background: rgba(255, 255, 255, 0.02); padding: 60px;
-            border-radius: 30px; border: 1px solid var(--border);
-            margin-top: 100px; backdrop-filter: blur(10px);
+            display: flex; gap: 40px; align-items: center; background: rgba(255, 255, 255, 0.02);
+            padding: 50px; border-radius: 25px; border: 1px solid var(--border); margin-top: 100px;
         }
         .pfp-hex {
-            width: 250px; height: 250px;
+            width: 220px; height: 220px; border: 4px solid var(--primary);
             clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
             background: url('https://i.pinimg.com/736x/8e/3c/6c/8e3c6c06a382c730873a46944b0f026f.jpg') center/cover;
-            border: 5px solid var(--primary);
         }
-        .hud-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .stat-box { border-left: 2px solid var(--primary); padding-left: 15px; }
-        .stat-box h5 { font-size: 0.7rem; color: var(--primary); }
-        .stat-box p { font-size: 1.2rem; font-weight: 700; }
 
         /* --- SCROLL PROGRESS --- */
-        #progress {
-            position: fixed; top: 0; left: 0; height: 4px;
-            background: var(--primary); z-index: 2000; width: 0%;
-            box-shadow: var(--glow);
-        }
+        #progress { position: fixed; top: 0; left: 0; height: 3px; background: var(--primary); z-index: 2000; width: 0%; box-shadow: var(--glow); }
 
-        /* --- SYNTAX --- */
+        /* SYNTAX */
         .k { color: #bb9af7; } .f { color: #7aa2f7; } .s { color: #9ece6a; } .c { color: #565f89; }
     </style>
 </head>
@@ -158,178 +111,158 @@
 <div id="canvas-container"><canvas id="matrix"></canvas></div>
 
 <nav>
-    <div style="font-weight:900; letter-spacing: 3px; color:var(--primary)">VOID_OS.v9</div>
+    <div style="font-weight:900; letter-spacing: 2px; color:var(--primary)">UTKARSH.PRO</div>
     <div class="nav-links">
         <a href="#home">HOME</a>
-        <a href="#codes">REPOSITORY</a>
-        <a href="#owner">IDENTITY</a>
-        <a href="https://slayers-001.github.io/Norden-MC/">NORDEN_LIVE</a>
+        <a href="#identity">IDENTITY</a>
+        <a href="#repo">REPOSITORY</a>
+        <a href="https://slayers-001.github.io/Norden-MC/">NORDEN-MC</a>
     </div>
-    <div style="font-size:0.7rem; color:var(--primary)">[ SECURE_ACCESS ]</div>
 </nav>
 
 <section class="hero" id="home">
-    <div class="orb-wrapper">
-        <div class="orb"></div>
-        <div class="orb-ring"></div>
-        <div class="orb-ring" style="animation-duration: 15s; border-color: var(--primary); width: 140%; height: 140%; top: -20%; left: -20%;"></div>
-    </div>
-    <p style="letter-spacing: 10px; color: var(--primary); margin-bottom: 10px;">WELCOME TO THE NEURAL LINK</p>
+    <div class="orb-wrapper"><div class="orb"></div><div class="orb-ring"></div></div>
     <h1>UTKARSH PANDEY</h1>
-    <p style="font-family: 'Fira Code'; opacity: 0.6; max-width: 600px; margin-top: 20px;">
-        Advanced Python Architect | Web Infrastructure Specialist | System Administrator of Norden-MC & Demon-MC
-    </p>
+    <p style="font-family:'Fira Code'; color:var(--primary); margin-top:10px;">[ SYSTEM_ADMIN // LEAD_DEVELOPER ]</p>
 </section>
 
 <div class="container">
-    
-    <section id="owner">
-        <h2 class="section-title">01. Identity_Profile</h2>
+
+    <section id="identity">
+        <h2 class="section-title">01. Identity_Matrix</h2>
         <div class="owner-hud">
             <div class="pfp-hex"></div>
-            <div class="hud-content">
-                <h3 style="font-size: 2.5rem; color: var(--primary);">ADMIN_ACCESS_GRANTED</h3>
-                <p style="color: #888; font-family: 'Fira Code'; margin-top: 10px;">
-                    User: Utkarsh Pandey <br>
-                    Role: Full-Stack Developer & AI Prompt Engineer <br>
-                    Status: <span style="color:#00ff00">ONLINE [S-RANK]</span>
-                </p>
-                <div class="hud-stats">
-                    <div class="stat-box"><h5>CODE_UNITS</h5><p>150+ Modules</p></div>
-                    <div class="stat-box"><h5>NETWORK</h5><p>Demon MC / Norden</p></div>
-                    <div class="stat-box"><h5>LEVEL</h5><p>Apex Developer</p></div>
-                    <div class="stat-box"><h5>CLEARANCE</h5><p>Root Admin</p></div>
+            <div>
+                <h3 style="font-size: 2rem;">Utkarsh Pandey</h3>
+                <p style="color:#888; margin: 10px 0;">Developer and Administrator of high-performance Minecraft servers (Norden-MC, Demon-MC).</p>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top:20px;">
+                    <div style="border-left: 2px solid var(--primary); padding-left: 10px;"><h5>SCRIPTS</h5><p>120+ Active</p></div>
+                    <div style="border-left: 2px solid var(--primary); padding-left: 10px;"><h5>CLEARANCE</h5><p>Root Access</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="codes" style="margin-top: 150px;">
-        <h2 class="section-title">02. Neural_Repository</h2>
-        
+    <section id="repo" style="margin-top: 100px;">
+        <h2 class="section-title">02. Neural_Library</h2>
         <div class="grid" id="codeGrid">
             
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// NETWORK_SCANNER.PY</span><button class="btn-copy" onclick="copyCode(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> scapy.all <span class="k">as</span> scapy
-<span class="k">def</span> <span class="f">scan</span>(ip):
-    arp_req = scapy.<span class="f">ARP</span>(pdst=ip)
-    broadcast = scapy.<span class="f">Ether</span>(dst=<span class="s">"ff:ff:ff:ff:ff:ff"</span>)
-    <span class="k">return</span> scapy.<span class="f">srp</span>(broadcast/arp_req, timeout=<span class="s">1</span>)[<span class="s">0</span>]</code></pre>
+                    <div class="card-header"><span>// MC_LIVE_QUERY.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">from</span> mcstatus <span class="k">import</span> JavaServer
+server = JavaServer.lookup(<span class="s">"play.nordenmc.net"</span>)
+<span class="f">print</span>(<span class="f">f</span><span class="s">"Online: {server.status().players.online}"</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// MC_RCON_COMMANDER.PY</span><button class="btn-copy" onclick="copyCode(this)">COPY</button></div>
+                    <div class="card-header"><span>// SERVER_RCON.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                     <pre><code><span class="k">from</span> mcrcon <span class="k">import</span> MCRcon
-<span class="k">with</span> MCRcon(<span class="s">"IP"</span>, <span class="s">"PASS"</span>) <span class="k">as</span> mcr:
-    mcr.<span class="f">command</span>(<span class="s">"pardon Utkarsh"</span>)
-    mcr.<span class="f">command</span>(<span class="s">"op Utkarsh"</span>)</code></pre>
+<span class="k">with</span> MCRcon(<span class="s">"127.0.0.1"</span>, <span class="s">"password"</span>) <span class="k">as</span> mcr:
+    mcr.<span class="f">command</span>(<span class="s">"/restart"</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// AI_VOICE_ASSISTANT.PY</span><button class="copy-btn" onclick="copyCode(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> speech_recognition <span class="k">as</span> sr
-<span class="k">def</span> <span class="f">listen</span>():
-    r = sr.<span class="f">Recognizer</span>()
-    <span class="k">with</span> sr.<span class="f">Microphone</span>() <span class="k">as</span> source:
-        <span class="f">print</span>(<span class="s">"System Listening..."</span>)
-        <span class="k">return</span> r.<span class="f">listen</span>(source)</code></pre>
+                    <div class="card-header"><span>// CLOUD_BACKUP.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> shutil, os
+shutil.<span class="f">make_archive</span>(<span class="s">'backup_v1'</span>, <span class="s">'zip'</span>, <span class="s">'world_folder'</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// CRYPTO_WALLET_GEN.PY</span><button class="btn-copy" onclick="copyCode(this)">COPY</button></div>
-                    <pre><code><span class="k">from</span> eth_account <span class="k">import</span> Account
-acc = Account.<span class="f">create</span>(<span class="s">'RANDOM_SEED'</span>)
-<span class="f">print</span>(<span class="s">"Address:"</span>, acc.address)
-<span class="f">print</span>(<span class="s">"Key:"</span>, acc.key.hex())</code></pre>
+                    <div class="card-header"><span>// NEXUS_BOT.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> discord
+client = discord.Client()
+<span class="k">@client.event</span>
+<span class="k">async def</span> <span class="f">on_ready</span>(): <span class="f">print</span>(<span class="s">'Logged in'</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// AUTO_INSTAGRAM_BOT.PY</span><button class="btn-copy" onclick="copyCode(this)">COPY</button></div>
-                    <pre><code><span class="k">from</span> instabot <span class="k">import</span> Bot
-bot = <span class="f">Bot</span>()
-bot.<span class="f">login</span>(username=<span class="s">"user"</span>, password=<span class="s">"pass"</span>)
-bot.<span class="f">upload_photo</span>(<span class="s">"pfp.jpg"</span>, caption=<span class="s">"Nexus Alpha"</span>)</code></pre>
+                    <div class="card-header"><span>// GAME_SNAKE.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> turtle, time
+s = turtle.Screen()
+snake = turtle.Turtle(<span class="s">"square"</span>)
+snake.color(<span class="s">"cyan"</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
-                    <div class="card-header"><span>// DISCORD_NUKE_PREVENT.PY</span><button class="btn-copy" onclick="copyCode(this)">COPY</button></div>
-                    <pre><code><span class="k">@bot.event</span>
-<span class="k">async def</span> <span class="f">on_guild_channel_delete</span>(channel):
-    <span class="k">async for</span> entry <span class="k">in</span> channel.guild.<span class="f">audit_logs</span>(limit=<span class="s">1</span>):
-        <span class="k">await</span> entry.user.<span class="f">ban</span>(reason=<span class="s">"Anti-Nuke"</span>)</code></pre>
+                    <div class="card-header"><span>// GAME_RPS.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">import</span> random
+cpu = random.choice([<span class="s">'R'</span>,<span class="s">'P'</span>,<span class="s">'S'</span>])
+user = <span class="f">input</span>(<span class="s">"Choice: "</span>)</code></pre>
                 </div>
             </div>
 
-        </div>
+            </div>
     </section>
-
 </div>
 
 <script>
-    // 1. MATRIX RAIN EFFECT
+    // MATRIX BG
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    const chars = "UTKARSHPANDEY01";
+    const alphabet = "UTKARSHPANDEYNEXUS01";
     const fontSize = 16;
     const drops = Array(Math.floor(canvas.width / fontSize)).fill(1);
 
-    function drawMatrix() {
+    function draw() {
         ctx.fillStyle = "rgba(3, 3, 5, 0.1)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = "#00f2ff";
         ctx.font = fontSize + "px monospace";
         drops.forEach((y, i) => {
-            const text = chars[Math.floor(Math.random() * chars.length)];
+            const text = alphabet[Math.floor(Math.random() * alphabet.length)];
             ctx.fillText(text, i * fontSize, y * fontSize);
             if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
         });
     }
-    setInterval(drawMatrix, 50);
+    setInterval(draw, 50);
 
-    // 2. SCROLL PROGRESS
+    // COPY
+    function copy(btn) {
+        const code = btn.closest('.code-card').querySelector('code').innerText;
+        navigator.clipboard.writeText(code);
+        btn.innerText = "DONE!";
+        setTimeout(() => btn.innerText = "COPY", 2000);
+    }
+
+    // SCROLL PROGRESS
     window.onscroll = () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         document.getElementById("progress").style.width = (winScroll / height) * 100 + "%";
     };
 
-    // 3. COPY CODE
-    function copyCode(btn) {
-        const code = btn.closest('.code-card').querySelector('code').innerText;
-        navigator.clipboard.writeText(code);
-        const originalText = btn.innerText;
-        btn.innerText = "DONE!";
-        btn.style.background = "#bc13fe";
-        setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.background = "var(--primary)";
-        }, 2000);
+    // --- AUTOMATED 100+ CODE GENERATOR ---
+    const grid = document.getElementById('codeGrid');
+    const topics = ["NETWORK", "OS", "FILE", "AI", "MATH", "CRYPTO", "WEB", "UI", "BOT", "SYS"];
+    
+    for(let i=7; i<=110; i++) {
+        const topic = topics[i % topics.length];
+        const card = document.createElement('div');
+        card.className = "code-card";
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-header"><span>// ${topic}_MODULE_${i}.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                <pre><code><span class="k">import</span> ${topic.toLowerCase()}
+<span class="c"># Auto-generated high-utility module</span>
+<span class="k">def</span> <span class="f">nexus_execute_${i}</span>():
+    <span class="k">return</span> ${topic.toLowerCase()}.<span class="f">initialize</span>()</code></pre>
+            </div>
+        `;
+        grid.appendChild(card);
     }
-
-    // 4. PARALLAX EFFECT FOR CARDS
-    document.addEventListener('mousemove', (e) => {
-        const cards = document.querySelectorAll('.code-card');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        cards.forEach(card => {
-            card.style.transform = `rotateY(${(x - 0.5) * 10}deg) rotateX(${(y - 0.5) * -10}deg)`;
-        });
-    });
 </script>
-
 </body>
 </html>
