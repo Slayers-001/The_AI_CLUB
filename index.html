@@ -5,205 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTKARSH.PRO | NEXUS_OMNI</title>
     <style>
-        /* GLOBAL RESET & CYBER THEME */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #000; color: #00f2ff; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; }
 
-        body {
-            background-color: #050505;
-            color: #00f2ff;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* FIX: Centers all sections */
-        }
-
-        /* MATRIX BACKGROUND EFFECT */
+        /* MATRIX BACKGROUND */
         .matrix-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.1;
             background: linear-gradient(rgba(0, 242, 255, 0.1) 1px, transparent 1px),
                         linear-gradient(90deg, rgba(0, 242, 255, 0.1) 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-size: 30px 30px;
         }
 
-        /* NAVBAR - UTKARSH.PRO */
+        /* NAVIGATION */
         nav {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 15px 30px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 1px solid #00f2ff;
-            border-radius: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
+            width: 90%; max-width: 1200px; margin: 20px auto; padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.9); border: 1px solid #00f2ff; border-radius: 50px;
+            display: flex; justify-content: space-between; align-items: center;
         }
+        .nav-links a { color: #fff; text-decoration: none; margin-left: 20px; font-size: 0.75rem; text-transform: uppercase; }
 
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        /* IDENTITY MATRIX SECTION */
-        .identity-section {
-            width: 90%;
-            max-width: 1100px;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .hero-card {
-            border: 1px solid rgba(0, 242, 255, 0.3);
-            background: rgba(10, 10, 10, 0.6);
-            padding: 40px;
-            border-radius: 20px;
-            position: relative;
-        }
-
-        .hero-card h1 {
-            font-size: 3rem;
-            color: #fff;
-            text-shadow: 0 0 10px #00f2ff;
-        }
-
-        /* NEURAL REPOSITORY - GRID FIX */
-        .repository-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
-            margin-top: 40px;
-        }
-
-        .code-card {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            border-radius: 12px;
-            padding: 20px;
-            transition: 0.3s;
-        }
-
-        .code-card:hover {
-            border-color: #00f2ff;
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
-        }
-
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            color: #00f2ff;
-            font-size: 0.7rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #1a1a1a;
-            padding-bottom: 5px;
-        }
-
-        pre {
-            color: #d1d1d1;
-            font-size: 0.85rem;
-            overflow-x: auto;
-            text-align: left;
-        }
-
-        .copy-btn {
-            background: #00f2ff;
-            border: none;
-            padding: 2px 8px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.6rem;
-            font-weight: bold;
-        }
+        /* HERO SECTION */
+        .hero { width: 90%; max-width: 1000px; padding: 80px 0; text-align: center; }
+        .hero-box { border: 1px solid rgba(0, 242, 255, 0.5); border-radius: 20px; padding: 50px; position: relative; }
+        .hero h1 { font-size: 3.5rem; color: #fff; text-shadow: 0 0 20px rgba(0, 242, 255, 0.8); margin: 10px 0; }
+        
+        /* REPOSITORY GRID */
+        .repo-container { width: 95%; max-width: 1200px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding-bottom: 50px; }
+        .code-card { background: #050505; border: 1px solid #111; border-radius: 15px; padding: 25px; transition: 0.3s; }
+        .code-card:hover { border-color: #00f2ff; box-shadow: 0 0 20px rgba(0, 242, 255, 0.1); }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .filename { font-family: monospace; font-size: 0.75rem; color: #00f2ff; }
+        .copy-btn { background: #00f2ff; color: #000; border: none; padding: 4px 12px; border-radius: 4px; font-size: 0.65rem; font-weight: bold; cursor: pointer; }
+        
+        pre { color: #ccc; font-family: 'Courier New', monospace; font-size: 0.85rem; line-height: 1.5; overflow-x: auto; white-space: pre-wrap; text-align: left; }
     </style>
 </head>
 <body>
-
     <div class="matrix-bg"></div>
 
     <nav>
-        <div class="logo">UTKARSH.PRO</div>
+        <div style="font-weight: bold; letter-spacing: 2px;">UTKARSH.PRO</div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Identity</a>
-            <a href="#">Repository</a>
-            <a href="#">Norden-MC</a>
-            <button style="background:none; border: 1px solid #00f2ff; color: #00f2ff; padding: 5px 15px; border-radius: 5px; margin-left: 10px;">[ TERMINAL ]</button>
+            <a href="#">Home</a> <a href="#">Identity</a> <a href="#">Repository</a> <a href="#">Norden-MC</a>
+            <button style="border: 1px solid #00f2ff; background: none; color: #00f2ff; padding: 5px 15px; border-radius: 5px; margin-left: 15px;">[ TERMINAL ]</button>
         </div>
     </nav>
 
-    <section class="identity-section">
-        <div class="hero-card">
-            <p style="color: #00f2ff; font-family: monospace; margin-bottom: 10px;">01. IDENTITY_MATRIX</p>
+    <section class="hero">
+        <div class="hero-box">
+            <p style="font-size: 0.7rem; letter-spacing: 3px; color: #00f2ff;">01. IDENTITY_MATRIX</p>
             <h1>Utkarsh Pandey</h1>
-            <p style="color: #888;">Developer and Administrator of high-performance Minecraft servers (Norden-MC, Demon-MC).</p>
-            
-            <div style="display: flex; justify-content: center; gap: 50px; margin-top: 30px;">
-                <div>
-                    <p style="font-size: 0.7rem; color: #555;">SCRIPTS</p>
-                    <p>120+ Active</p>
-                </div>
-                <div>
-                    <p style="font-size: 0.7rem; color: #555;">CLEARANCE</p>
-                    <p>Root Access</p>
-                </div>
+            <p style="color: #777; margin-bottom: 30px;">Developer and Administrator of high-performance Minecraft servers (Norden-MC, Demon-MC).</p>
+            <div style="display: flex; justify-content: center; gap: 80px;">
+                <div><p style="font-size: 0.6rem; color: #444;">SCRIPTS</p><p>120+ Active</p></div>
+                <div><p style="font-size: 0.6rem; color: #444;">CLEARANCE</p><p style="color: #00f2ff;">Root Access</p></div>
             </div>
         </div>
     </section>
 
-    <h2 style="text-align: center; margin-top: 40px;">02. NEURAL_REPOSITORY</h2>
-    
-    <div class="repository-grid">
+    <h2 style="margin-bottom: 40px; letter-spacing: 5px;">02. NEURAL_REPOSITORY</h2>
+
+    <div class="repo-container">
         <div class="code-card">
-            <div class="code-header">
-                <span>// NETWORK_SCANNER.PY</span>
-                <button class="copy-btn">COPY</button>
-            </div>
+            <div class="card-header"><span class="filename">// NETWORK_SCANNER.PY</span><button class="copy-btn">COPY</button></div>
             <pre>import scapy.all as scapy
 def scan(ip):
     arp_req = scapy.ARP(pdst=ip)
-    # Scanning logic...
-            </pre>
+    broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+    return scapy.srp(broadcast/arp_req, timeout=1)[0]</pre>
         </div>
 
         <div class="code-card">
-            <div class="code-header">
-                <span>// MC_RCON_COMMANDER.PY</span>
-                <button class="copy-btn">COPY</button>
-            </div>
+            <div class="card-header"><span class="filename">// MC_RCON_COMMANDER.PY</span><button class="copy-btn">COPY</button></div>
             <pre>from mcrcon import MCRcon
 with MCRcon("IP", "PASS") as mcr:
-    mcr.command("op Utkarsh")
-            </pre>
+    mcr.command("pardon Utkarsh")
+    mcr.command("op Utkarsh")</pre>
         </div>
 
         <div class="code-card">
-            <div class="code-header">
-                <span>// DISCORD_NUKE_PREVENT.PY</span>
-                <button class="copy-btn">COPY</button>
-            </div>
+            <div class="card-header"><span class="filename">// AI_VOICE_ASSISTANT.PY</span><button class="copy-btn">COPY</button></div>
+            <pre>import speech_recognition as sr
+def listen():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("System Listening...")
+        return r.listen(source)</pre>
+        </div>
+
+        <div class="code-card">
+            <div class="card-header"><span class="filename">// CRYPTO_WALLET_GEN.PY</span><button class="copy-btn">COPY</button></div>
+            <pre>from eth_account import Account
+acc = Account.create('RANDOM_SEED')
+print("Address:", acc.address)
+print("Key:", acc.key.hex())</pre>
+        </div>
+
+        <div class="code-card">
+            <div class="card-header"><span class="filename">// AUTO_INSTAGRAM_BOT.PY</span><button class="copy-btn">COPY</button></div>
+            <pre>from instabot import Bot
+bot = Bot()
+bot.login(username="user", password="pass")
+bot.upload_photo("pfp.jpg", caption="Nexus Alpha")</pre>
+        </div>
+
+        <div class="code-card">
+            <div class="card-header"><span class="filename">// DISCORD_NUKE_PREVENT.PY</span><button class="copy-btn">COPY</button></div>
             <pre>@bot.event
 async def on_guild_channel_delete(channel):
-    # Anti-Nuke logic...
-            </pre>
+    async for entry in channel.guild.audit_logs(limit=1):
+        await entry.user.ban(reason="Anti-Nuke")</pre>
         </div>
     </div>
-
 </body>
 </html>
