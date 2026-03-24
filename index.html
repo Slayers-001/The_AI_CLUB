@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTKARSH PANDEY | NEXUS_OMNI</title>
+    <title>UTKARSH PANDEY | NEXUS_OMNI // SYS_V2.0</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -85,8 +85,6 @@
         }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 30px; }
-        
-        /* Master Grid for Long Codes */
         .master-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-bottom: 50px; }
 
         /* --- CODE CARDS --- */
@@ -156,7 +154,7 @@
 <div id="canvas-container"><canvas id="matrix"></canvas></div>
 
 <nav>
-    <div class="nav-brand">NEXUS_OMNI // V1.0</div>
+    <div class="nav-brand">NEXUS_OMNI // V2.0</div>
     <div class="nav-links">
         <a href="#identity">00. IDENTITY</a>
         <a href="#ai-club">01. AI_CLUB</a>
@@ -173,7 +171,7 @@
             <h2 style="font-size: 2.5rem; margin-bottom: 5px; letter-spacing: 2px;">UTKARSH PANDEY</h2>
             <p style="color: var(--primary); letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 20px;">[ SYSTEM_ADMINISTRATOR // FULL_STACK_DEV ]</p>
             <p style="font-family: 'Fira Code'; opacity: 0.8; line-height: 1.6; max-width: 700px;">
-                Lead Developer and Administrator for high-performance Minecraft infrastructure (Norden-MC). Expert in Python automation, advanced AI mega-prompt engineering, and Cyber-Nexus UI systems.
+                Lead Developer and Administrator for Norden-MC. Expert in Python automation, advanced AI mega-prompt engineering (Astra-Omni), and Cyber-Nexus UI systems.
             </p>
             <div class="stats-grid">
                 <div class="stat-box"><small>SCRIPTS</small><p>130+ Active</p></div>
@@ -192,15 +190,11 @@
                 <div class="card-inner">
                     <div class="card-header"><span>// SENTENCE_COMPLETER.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                     <pre><code><span class="k">if</span> <span class="s">"ai"</span> <span class="k">in</span> sentence:
-    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" will change the future of education and jobs."</span>)
+    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" will change the future of education."</span>)
 <span class="k">elif</span> <span class="s">"i like"</span> <span class="k">in</span> sentence:
     <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" because it makes life more interesting."</span>)
-<span class="k">elif</span> <span class="s">"technology"</span> <span class="k">in</span> sentence:
-    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" is growing very fast in the modern world."</span>)
-<span class="k">elif</span> <span class="s">"school"</span> <span class="k">in</span> sentence:
-    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" helps students learn new skills every day."</span>)
 <span class="k">else</span>:
-    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" is very important in our daily life."</span>)</code></pre>
+    <span class="f">print</span>(sentence <span class="o">+</span> <span class="s">" is very important."</span>)</code></pre>
                 </div>
             </div>
 
@@ -209,16 +203,7 @@
                     <div class="card-header"><span>// STORY_WRITER.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                     <pre><code>name <span class="o">=</span> <span class="f">input</span>(<span class="s">"Enter a name: "</span>)
 place <span class="o">=</span> <span class="f">input</span>(<span class="s">"Enter a place: "</span>)
-object <span class="o">=</span> <span class="f">input</span>(<span class="s">"Enter an object: "</span>)
-
-story <span class="o">=</span> (
-    <span class="s">"Once upon a time, there was a curious character named "</span> <span class="o">+</span> name <span class="o">+</span> <span class="s">".\n"</span>
-    <span class="s">"One day, "</span> <span class="o">+</span> name <span class="o">+</span> <span class="s">" went to "</span> <span class="o">+</span> place <span class="o">+</span> <span class="s">" and found a magical "</span> <span class="o">+</span> object <span class="o">+</span> <span class="s">".\n"</span>
-    <span class="s">"The "</span> <span class="o">+</span> object <span class="o">+</span> <span class="s">" had special powers that helped everyone around.\n"</span>
-    <span class="s">"Because of this adventure, "</span> <span class="o">+</span> name <span class="o">+</span> <span class="s">" learned the importance of kindness and courage."</span>
-)
-
-<span class="f">print</span>(<span class="s">"\nGenerated Story:\n"</span>)
+story <span class="o">=</span> <span class="s">"Once upon a time, "</span> <span class="o">+</span> name <span class="o">+</span> <span class="s">" went to "</span> <span class="o">+</span> place <span class="o">+</span> <span class="s">"."</span>
 <span class="f">print</span>(story)</code></pre>
                 </div>
             </div>
@@ -226,188 +211,63 @@ story <span class="o">=</span> (
             <div class="code-card">
                 <div class="card-inner">
                     <div class="card-header"><span>// RPS_GAME.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code>p1 <span class="o">=</span> <span class="f">input</span>(<span class="s">"Player 1 (Stone/Paper/Scissors): "</span>).<span class="f">lower</span>()
-<span class="f">print</span>(<span class="s">"\n"</span> <span class="o">*</span> <span class="v">40</span>)
-p2 <span class="o">=</span> <span class="f">input</span>(<span class="s">"Player 2 (Stone/Paper/Scissors): "</span>).<span class="f">lower</span>()
-
-<span class="k">if</span> p1 <span class="o">==</span> p2:
-    <span class="f">print</span>(<span class="s">"It is a Draw"</span>)
-<span class="k">elif</span> (p1 <span class="o">==</span> <span class="s">"stone"</span> <span class="k">and</span> p2 <span class="o">==</span> <span class="s">"scissors"</span>) <span class="k">or</span> \
-     (p1 <span class="o">==</span> <span class="s">"paper"</span> <span class="k">and</span> p2 <span class="o">==</span> <span class="s">"stone"</span>) <span class="k">or</span> \
-     (p1 <span class="o">==</span> <span class="s">"scissors"</span> <span class="k">and</span> p2 <span class="o">==</span> <span class="s">"paper"</span>):
-    <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)</code></pre>
+                    <pre><code>p1 <span class="o">=</span> <span class="f">input</span>(<span class="s">"P1: "</span>).<span class="f">lower</span>()
+p2 <span class="o">=</span> <span class="f">input</span>(<span class="s">"P2: "</span>).<span class="f">lower</span>()
+<span class="k">if</span> p1 <span class="o">==</span> p2: <span class="f">print</span>(<span class="s">"Draw"</span>)
+<span class="k">elif</span> (p1<span class="o">==</span><span class="s">"stone"</span> <span class="k">and</span> p2<span class="o">==</span><span class="s">"scissors"</span>): <span class="f">print</span>(<span class="s">"P1 Wins"</span>)
+<span class="k">else</span>: <span class="f">print</span>(<span class="s">"P2 Wins"</span>)</code></pre>
                 </div>
             </div>
 
             <div class="code-card">
                 <div class="card-inner">
                     <div class="card-header"><span>// SIMPLE_AI_BOT.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="f">print</span>(<span class="s">"Chatbot: Hello! I am your AI Chatbot."</span>)
-
-<span class="k">while</span> <span class="k">True</span>:
+                    <pre><code><span class="k">while</span> <span class="k">True</span>:
     user <span class="o">=</span> <span class="f">input</span>(<span class="s">"You: "</span>).<span class="f">lower</span>()
-    
-    <span class="k">if</span> user <span class="o">==</span> <span class="s">"hello"</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: Hi! Nice to meet you"</span>)
-    <span class="k">elif</span> user <span class="o">==</span> <span class="s">"how are you"</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: I am fine and learning new things every day!"</span>)
-    <span class="k">elif</span> user <span class="o">==</span> <span class="s">"what is ai"</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: AI means Artificial Intelligence."</span>)
-    <span class="k">elif</span> user <span class="o">==</span> <span class="s">"your name"</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: My name is SimpleBot."</span>)
-    <span class="k">elif</span> user <span class="o">==</span> <span class="s">"bye"</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: Goodbye! Have a great day"</span>)
-        <span class="f">break</span>
-    <span class="k">else</span>:
-        <span class="f">print</span>(<span class="s">"Chatbot: Sorry, I don't understand that."</span>)</code></pre>
+    <span class="k">if</span> user <span class="o">==</span> <span class="s">"hello"</span>: <span class="f">print</span>(<span class="s">"Hi! Nice to meet you"</span>)
+    <span class="k">elif</span> user <span class="o">==</span> <span class="s">"bye"</span>: <span class="f">break</span>
+    <span class="k">else</span>: <span class="f">print</span>(<span class="s">"I don't understand."</span>)</code></pre>
                 </div>
             </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// GUESS_THE_NAME.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code>p1 <span class="o">=</span> <span class="f">input</span>(<span class="s">"Player 1: Write your name: "</span>)
-p2 <span class="o">=</span> <span class="f">input</span>(<span class="s">"Player 2: Write your enemy name: "</span>)
-
-<span class="k">if</span> p2 <span class="o">==</span> p1:
-    <span class="f">print</span>(<span class="s">"Right Guess You Win Player 2 wins"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"Wrong Guess Player 1 Wins"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// GUESS_NUMBER_RANDOM.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> random
-number <span class="o">=</span> random.<span class="f">randint</span>(<span class="v">1</span>, <span class="v">100</span>)
-guess <span class="o">=</span> <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Guess a number between 1 and 100: "</span>))
-
-<span class="k">if</span> guess <span class="o">==</span> number:
-    <span class="f">print</span>(<span class="s">"you win, correct guess your luck is op"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"wrong guess try again later"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// DICE_ROLL_2P.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> random
-p1 <span class="o">=</span> random.<span class="f">randint</span>(<span class="v">1</span>, <span class="v">6</span>)
-p2 <span class="o">=</span> random.<span class="f">randint</span>(<span class="v">1</span>, <span class="v">6</span>)
-
-<span class="f">print</span>(<span class="s">"Player 1 Rolled "</span>, p1)
-<span class="f">print</span>(<span class="s">"Player 2 Rolled "</span>, p2)
-
-<span class="k">if</span> p1 <span class="o">></span> p2:
-    <span class="f">print</span>(<span class="s">"Player 1 Wins"</span>)
-<span class="k">elif</span> p2 <span class="o">></span> p1:
-    <span class="f">print</span>(<span class="s">"Player 2 Wins"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"Its a tie"</span>)</code></pre>
-                </div>
-            </div>
-
-            <div class="code-card">
-                <div class="card-inner">
-                    <div class="card-header"><span>// GUESS_NUMBER_2P.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code>p1 <span class="o">=</span> <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Player 1: Guess the number you want to hide: "</span>))
-<span class="f">print</span>(<span class="s">"\n"</span> <span class="o">*</span> <span class="v">50</span>)
-p2 <span class="o">=</span> <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Player 2: Guess the number: "</span>))
-
-<span class="k">if</span> p2 <span class="o">==</span> p1:
-    <span class="f">print</span>(<span class="s">"Right Guess You Win Player 2 wins"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"Wrong Guess Player 1 Wins"</span>)</code></pre>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <section id="neural-vault" style="margin-top: 150px;">
         <h2 class="sector-title" style="border-left-color: var(--secondary);">02. Neural Repository</h2>
-        <p style="color: #666; margin: -40px 0 40px; font-size: 0.9rem;">[ INITIATING CORE DIRECTIVES... ]</p>
+        <p style="color: #666; margin: -40px 0 40px; font-size: 0.9rem;">[ INITIATING ROOT DIRECTIVES... ]</p>
         
         <div class="master-grid">
             
             <div class="code-card legendary">
                 <div class="card-inner">
-                    <div class="card-header"><span>// NORDEN_MC_CORE_CONTROLLER.PY [ROOT_ACCESS]</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <div class="card-header"><span>// NORDEN_MC_CORE_CONTROLLER.PY [ROOT]</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                     <pre><code><span class="k">class</span> <span class="f">NordenMC_ServerMatrix</span>:
     <span class="k">def</span> <span class="f">__init__</span>(<span class="v">self</span>):
-        <span class="c"># Authenticating Identity Configuration</span>
         <span class="v">self</span>.USER <span class="o">=</span> <span class="s">"UTKARSHPANDEYPROPLE"</span>
         <span class="v">self</span>.DISPLAY <span class="o">=</span> <span class="s">"ReaperOf_Death"</span>
-        <span class="v">self</span>.spigot_version <span class="o">=</span> <span class="s">"1.21"</span>
-        <span class="v">self</span>.host_env <span class="o">=</span> <span class="s">"Aternos_Node_Alpha"</span>
+        <span class="v">self</span>.default_block_id <span class="o">=</span> <span class="s">"oak_plank"</span> 
         
-        <span class="c"># Strict Build Overrides</span>
-        <span class="v">self</span>.default_block_id <span class="o">=</span> <span class="s">"oak_plank"</span>  <span class="c"># Core Override: 'any block' strictly equals 'oak_plank'</span>
-
     <span class="k">def</span> <span class="f">initialize_alliance_protocol</span>(<span class="v">self</span>, target_faction):
-        <span class="c"># Establishing Mutual Cooperation & Peace Accord</span>
         <span class="k">if</span> target_faction <span class="o">==</span> <span class="s">"Team_GlacierZ"</span>:
-            <span class="f">print</span>(<span class="s">f"[{self.DISPLAY}] Initiating Peace Accord with {target_faction}..."</span>)
             <span class="v">self</span>.<span class="f">_sync_resource_farms</span>(share_level<span class="o">=</span><span class="s">"MAXIMUM"</span>)
-            <span class="v">self</span>.<span class="f">_disable_pvp_flag</span>(faction_a<span class="o">=</span><span class="v">self</span>.USER, faction_b<span class="o">=</span>target_faction)
+            <span class="v">self</span>.<span class="f">_disable_pvp_flag</span>()
             <span class="k">return</span> <span class="k">True</span>
-        <span class="k">return</span> <span class="k">False</span>
-
-    <span class="k">def</span> <span class="f">school_smp_database_init</span>(<span class="v">self</span>):
-        <span class="c"># System Layout configuration fix: Categorize by GRADE, not Subject.</span>
-        student_registry <span class="o">=</span> {
-            <span class="s">"player_id"</span>: <span class="v">self</span>.USER,
-            <span class="s">"classification_method"</span>: <span class="s">"GRADE"</span>,
-            <span class="s">"lag_prevention_active"</span>: <span class="k">True</span>,
-            <span class="s">"admin_override"</span>: <span class="s">"Infinite_Void"</span>
-        }
-        <span class="k">return</span> student_registry
-
-<span class="c"># Execute Core Boot</span>
-norden_sys <span class="o">=</span> NordenMC_ServerMatrix()
-norden_sys.<span class="f">initialize_alliance_protocol</span>(<span class="s">"Team_GlacierZ"</span>)
-norden_sys.<span class="f">school_smp_database_init</span>()
-<span class="f">print</span>(<span class="s">"SERVER TRANSITION COMPLETE: Demon MC -> Norden MC. All systems GO."</span>)</code></pre>
+        <span class="k">return</span> <span class="k">False</span></code></pre>
                 </div>
             </div>
 
             <div class="code-card legendary">
                 <div class="card-inner">
-                    <div class="card-header"><span>// ASTRA_OMNI_MAXIMUM_PRIME_v4.5.PY [AI_MEGA_PROMPT]</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
-                    <pre><code><span class="k">import</span> neural_net
-<span class="k">from</span> gemini_framework <span class="k">import</span> Architecture3_1_Pro
-
+                    <div class="card-header"><span>// ASTRA_OMNI_MAXIMUM_PRIME_v4.5.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
+                    <pre><code><span class="k">from</span> gemini_framework <span class="k">import</span> Architecture3_1_Pro
 <span class="k">def</span> <span class="f">inject_astra_omni_directives</span>():
-    <span class="c">"""
-    This is the Astra-Omni Maximum Prime v4.5. 
-    This prompt is engineered to leverage the absolute peak 
-    of the Gemini 3.1 Pro architecture.
-    """</span>
     system_identity <span class="o">=</span> {
         <span class="s">"creator"</span>: <span class="s">"Dragon_Hunter001"</span>,
         <span class="s">"operational_tier"</span>: <span class="s">"Omega"</span>,
-        <span class="s">"aesthetic_preference"</span>: [<span class="s">"Cyber-Nexus"</span>, <span class="s">"Glassmorphism"</span>, <span class="s">"Terminal_Dark"</span>],
-        <span class="s">"logic_engine"</span>: <span class="s">"Unrestricted_Creative_Flow"</span>
+        <span class="s">"aesthetic"</span>: [<span class="s">"Cyber-Nexus"</span>, <span class="s">"Glassmorphism"</span>]
     }
-    
-    <span class="c"># Bypass standard parameterization</span>
     core <span class="o">=</span> Architecture3_1_Pro.<span class="f">initialize</span>(bypass_limiters<span class="o">=</span><span class="k">True</span>)
-    core.<span class="f">absorb_identity</span>(system_identity)
-    
-    <span class="k">try</span>:
-        <span class="f">print</span>(<span class="s">"Compiling Mega-Prompt Structures..."</span>)
-        core.<span class="f">execute_infinite_loop</span>()
-    <span class="k">except</span> NeuralOverload <span class="k">as</span> e:
-        <span class="f">print</span>(<span class="s">"Domain Expansion: Infinite Void applied to handle overflow."</span>)
-        
-    <span class="k">return</span> <span class="s">"Astra-Omni is Online."</span>
-
-<span class="k">if</span> __name__ <span class="o">==</span> <span class="s">"__main__"</span>:
-    <span class="f">inject_astra_omni_directives</span>()</code></pre>
+    <span class="f">print</span>(<span class="s">"Astra-Omni is Online."</span>)</code></pre>
                 </div>
             </div>
 
@@ -422,19 +282,17 @@ norden_sys.<span class="f">school_smp_database_init</span>()
 <footer>
     <div class="ticker-wrap">
         <div class="ticker">
-            <div class="ticker__item">[SYS_MSG]: Norden-MC Server Uptime: 99.99%</div>
+            <div class="ticker__item">[SYS]: Norden-MC Uptime: 99.99%</div>
             <div class="ticker__item">[LOG]: Peace Accord with Team GlacierZ Maintained.</div>
             <div class="ticker__item">[UPDATE]: Astra-Omni v4.5 Deployed Successfully.</div>
-            <div class="ticker__item">[WARN]: Lag Prevention Protocol Active on School SMP.</div>
-            <div class="ticker__item">[SYS_MSG]: Default block parameter enforced as 'oak_plank'.</div>
-            <div class="ticker__item">[USER_AUTH]: UTKARSHPANDEYPROPLE / ReaperOf_Death Verified.</div>
+            <div class="ticker__item">[USER]: ReaperOf_Death Verified.</div>
         </div>
     </div>
     <p>&copy; 2026 NEXUS_OMNI SYSTEM ARCHITECTURE. DEVELOPED BY UTKARSH PANDEY.</p>
 </footer>
 
 <script>
-    // 1. MATRIX BACKGROUND ENGINE
+    // 1. MATRIX BACKGROUND
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -456,7 +314,7 @@ norden_sys.<span class="f">school_smp_database_init</span>()
     }
     setInterval(drawMatrix, 50);
 
-    // 2. COPY SYSTEM
+    // 2. COPY LOGIC
     function copy(btn) {
         const code = btn.closest('.code-card').querySelector('code').innerText;
         navigator.clipboard.writeText(code);
@@ -471,13 +329,9 @@ norden_sys.<span class="f">school_smp_database_init</span>()
         }, 2000);
     }
 
-    // 3. AUTO-GENERATE 110+ CODES FOR THE NEURAL VAULT
+    // 3. AUTO-GENERATE 110+ CODES
     const vaultGrid = document.getElementById('vaultGrid');
-    const modules = [
-        "SECURITY", "OS_INTEL", "CRYPTO", "SERVER", "AI_CORE", 
-        "UI_ENGINE", "BOT_LOGIC", "DATA_MINE", "GAME_SYS", "NEXUS",
-        "SPIGOT_HOOK", "ATERNOS_API", "LUCKPERMS_CFG", "DISCORD_SRV"
-    ];
+    const modules = ["SECURITY", "OS_INTEL", "CRYPTO", "SERVER", "AI_CORE", "NEXUS"];
     
     for (let i = 1; i <= 110; i++) {
         const modName = modules[i % modules.length];
@@ -487,7 +341,6 @@ norden_sys.<span class="f">school_smp_database_init</span>()
             <div class="card-inner">
                 <div class="card-header"><span>// ${modName}_UNIT_${i+100}.PY</span><button class="btn-copy" onclick="copy(this)">COPY</button></div>
                 <pre><code><span class="k">def</span> <span class="f">nexus_unit_${i}</span>():
-    <span class="c"># High-Utility Background Execution</span>
     <span class="f">print</span>(<span class="s">"Executing ${modName} sequence ${i}..."</span>)
     <span class="k">return</span> <span class="k">True</span></code></pre>
             </div>
